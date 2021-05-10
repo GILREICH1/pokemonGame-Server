@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const corsMiddleware = require('cors');
 
 const PORT = 3001;
 
@@ -16,6 +17,7 @@ function saveHighestScore(username, score) {
   }
 }
 
+app.use(corsMiddleware());
 app.use(express.json())
 
 app.get('/scores', (req, res) => {
